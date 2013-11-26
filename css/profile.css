@@ -1,0 +1,41 @@
+
+#structure .fields {
+	width:35%;
+}
+#structure .status-area {
+	
+	width:5%;
+}
+#structure .help-area {
+	
+	width:40%;
+}
+#structure td {
+	padding-top:15px;
+}
+
+input.input {
+	width:345px;
+}
+
+.code {
+	text-align:center;
+	width:120px;
+	height:25px;
+}
+
+p.help {
+	
+	text-shadow: 1px 1px #666;
+}
+
+
+
+#email, #phone {
+	margin-bottom:10px;
+}
+
+.status {
+	
+	width:20px;
+}

@@ -1,0 +1,102 @@
+body {
+	color:#fff;
+	font-family:Arial;
+}
+
+h1.top {
+	font-size:250%;
+	margin-top:50px;
+
+}
+
+h2.label{
+	margin-top: 40px;
+	margin-left: 80px;
+	font-size: xx-large;
+	text-shadow: 2px 2px #666;
+}
+
+.styled-select select {
+
+   background: transparent;
+   width: 500px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+}
+
+ .styled-select {
+	margin-left:150px;
+   width: 460px;
+   height: 34px;
+   overflow: hidden;
+   background: url(../images/new_arrow.png) no-repeat right #ddd;
+   border: 1px solid #ccc;
+}
+
+h1 {
+	text-align:center;
+	text-transform:uppercase;
+	text-shadow: 2px 2px #666;
+}
+
+input,textarea {
+	border:0;
+	border-left:4px solid #f70048;
+	color:#666;
+	padding:5px 0;
+	margin-left:150px;
+	width:460px;
+	float:left;
+}
+
+input.button {
+	text-transform:uppercase;
+	color:#fff;
+	background-color: #f70048;
+	width:100px;
+	
+}
+.big {
+	font-size:120%;
+	font-weight:bold;
+	float:right;
+	margin-right:106px;
+	margin-top:10px;
+	
+}
+label {
+	text-transform:uppercase;
+	font-weight:bold;
+	text-shadow: 1px 1px #666;
+}
+
+body {
+	
+	background:#ffffff url(../images/lpbackground.jpg) no-repeat 50% top;
+}
+#wrapper {
+	
+	width:720px;
+	height:570px;
+	padding:10px;
+	margin-top:40px;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:rgba(255,255,255,0.4);
+	
+}
+
+.people_area {
+
+	margin-left:130px;
+	color:#f70048;
+}
+
+.input {
+	font-size:120%;
+}
