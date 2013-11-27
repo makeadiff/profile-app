@@ -3,10 +3,11 @@ body {
 	font-family:Arial;
 }
 h1 {
+	font-family:BebasNeueRegular,Arial;
 	text-align:center;
 	text-transform:uppercase;
 	text-shadow: 2px 2px #666;
-	font-size:230%;
+	font-size:400%;
 }
 input,textarea {
 	border:0;
@@ -16,47 +17,85 @@ input,textarea {
 }
 
 label {
-	font-size:120%;
-	text-shadow: 3px 3px #666;
+	font-family:BebasNeueRegular,Arial;
+	font-size:150%;
+	text-shadow: 1px 1px #666;
 }
 
 input.button {
+	
 	text-transform:uppercase;
 	color:#fff;
 	background-color: #f70048;
 	padding-right:3px;
-	font-size:70%;
-	width:110px;
+	font-size:80%;
+	width:100px;
 	height:35px;
+	
+}
+
+input.verification {
+	font-size:65%;
+	width:120px;
+	height:35px;
+	margin-top:10px;
+
+
 }
 .big {
-	font-size:120%;
+	font-size:150%;
 	font-weight:bold;
 	float:right;
-	margin-top:-40px;
+	margin-top:-20px;
 }
-label {
-	text-transform:uppercase;
-	font-weight:bold;
+
+h2.label{
+	font-family:BebasNeueRegular,Arial;
+	margin-top: 40px;
+	margin-left: 80px;
+	font-size: xx-large;
 	text-shadow: 2px 2px #666;
+}
+
+.styled-select select {
+
+   background: transparent;
+   width: 500px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+}
+
+ .styled-select {
+	margin-left:150px;
+   width: 460px;
+   height: 34px;
+   overflow: hidden;
+   background: url(../images/new_arrow.png) no-repeat right #ddd;
+   border: 1px solid #ccc;
 }
 
 textarea {
 
 	width:350px;
+	font-size:150%;
 
 }
 
 
 body {
-	background:#ffffff url(../images/orgbackground.jpg) no-repeat 50% 0;
+	background:#ffffff url(../images/a.jpg) no-repeat 50% 0;
 }
 #wrapper {
 	margin-top:20px;
-	width:680px;
-	height:1050px;
-	padding:10px;
-	background-color:rgba(255,255,255,0.5);
+	width:750px;
+	//height:1350px;
+	padding:30px;
+	background-color:rgba(255,255,255,0.1);
 	margin-left:auto;
 	margin-right:auto;
 	

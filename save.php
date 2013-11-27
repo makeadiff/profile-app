@@ -14,6 +14,7 @@ $sql->update('User', array(
 	'job_status' => $_REQUEST['job_status'],
 	'edu_institution' => $_REQUEST['edu_institution'],
 	'company' => $_REQUEST['company'],
+	'profile_progress' => $_REQUEST['progress'],
 ), "id=$user_id");
 
 ?>

@@ -18,7 +18,12 @@ $user_data = $sql->getAssoc("SELECT name, email, phone, sex, photo, address, bir
 <link type="text/css" rel="stylesheet" href="css/style.css" />
 <link type="text/css" rel="stylesheet" href="css/profile.css" />
 <link type="text/css" rel="stylesheet" href="js/calendar/calendar.css" />
-<link type="text/css" rel="stylesheet" href="js/jquery.percentageloader/src/jquery.percentageloader-0.1.css" />
+<link type="text/css" rel="stylesheet" href="css/jquery.percentageloader-0.1.css" />
+
+
+<script type='text/javascript' > 
+  var progress,loaders; 
+</script>
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/calendar/calendar.js"></script>
@@ -44,8 +49,9 @@ $user_data = $sql->getAssoc("SELECT name, email, phone, sex, photo, address, bir
 
 <script type="text/javascript">
 
-$("#progressbar").percentageLoader({
-    width : 150, height : 150, progress : 0.5, value : ''});
+var loader = $("#progressbar").percentageLoader({
+    width : 160, height : 160, progress : 0.0, value : ''});
+	
 </script>
 
 </div>	
@@ -58,7 +64,7 @@ $("#progressbar").percentageLoader({
 
 <tr><td><label for="email">Email</label><br />
 <input class="must input" type="text" name="email" id="email" value="<?php echo $user_data['email'] ?>" /><br />
-<input type="button" class="button" value="Send&#13;&#10;Verificaiton Code" name="action" id="send_email_code" />
+<input type="button" class="button verification" value="Send&#13;&#10;Verificaiton Code" name="action" id="send_email_code" />
 <input type="text" value="Verificaiton Code" name="email_code" id="email_code" class="code" /><!-- 1e339 -->
 <input type="hidden" value="" name="email_code_verified" id="email_code_verified" />
 <input type="button" class="button" value="Verify Code" name="action" id="verify_email_code" /></td>
@@ -67,7 +73,7 @@ $("#progressbar").percentageLoader({
 
 <tr><td><label for="phone">Phone</label><br />
 <input class="must input" type="text" name="phone" id="phone" value="<?php echo $user_data['phone'] ?>" /><br />
-<input type="button" class="button" value="Send&#13;&#10;Verificaiton Code" id="send_phone_code" />
+<input type="button" class="button verification" value="Send&#13;&#10;Verificaiton Code" id="send_phone_code" />
 <input type="text" value="Verificaiton Code" name="phone_code" id="phone_code" class="code" /><!-- d58be -->
 <input type="hidden" value="" name="phone_code_verified" id="phone_code_verified" />
 <input type="button" class="button" value="Verify Code" name="action" id="verify_phone_code" /></td>
@@ -111,11 +117,12 @@ $("#progressbar").percentageLoader({
 <input type="text" name="dob" vaule="" id="dob" class="input" value="<?php  echo $user_data['birthday']; ?>" />
 </td>
 <td><img src="images/invalid.png" id="dob_valid" class="status" /></td>
-<td class="help-area"><p class="help">That's it! Finish --></p></td></tr>
+<td class="help-area"><p class="help">That's it! You are done :)</p></td></tr>
 </table>
+<br /><br />
 <input type="submit" name="action" class="button big" value="Finish" />
 <input type="hidden" name="user_id" id="user_id" value="<?php  echo $user_id ?>" />
-
+<input type="hidden" name="progress" id="progress" />
 </form>
 </div>
 

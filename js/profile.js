@@ -1,4 +1,25 @@
+var container = {};
+		container['nameSet'] = 0;
+		container['emailSet'] = 0;
+		container['phoneSet'] = 0;
+		container['addressSet'] = 0;
+		container['dobSet'] = 0;
+		container['sexSet'] = 0;
+		container['job_statusSet'] = 0;
+		container['edu_institutionSet'] = 0;
+		container['companySet'] = 0;
+		container['progress'] = 0;
+
+
+
 function init() {	
+
+	
+	
+		
+	
+	
+	
 	if(document.getElementById("dob")) calendar.set("dob");
 	
 	$(".code").click(function() {
@@ -12,13 +33,17 @@ function init() {
 		if($(this).val() == "") $(this).val("Verificaiton Code");
 	});
 	
+	
 	$("#name").change(checkContent);
 	$("#email").change(checkContent);
 	$("#phone").change(checkContent);
 	$("#address").change(checkContent);
 	$("#dob").change(checkContent);
-	$("#sex").change(checkContent);
-	$("#job_status").change(checkContent);
+	$("#sex_f").change(checkContent);
+	$("#sex_m").change(checkContent);
+	$("#job_status_student").change(checkContent);
+	$("#job_status_working").change(checkContent);
+	$("#job_status_other").change(checkContent);
 	$("#edu_institution").change(checkContent);
 	$("#company").change(checkContent);
 	
@@ -123,6 +148,8 @@ function checkContent(id) {
 		var ele = $(this);
 	}
 	
+	
+	
 	if(id =="email" || id == "phone") {
 		if(ele.val() != $("#"+id+"_code_verified").val()) {
 			untick("#"+id+"_valid");
@@ -134,9 +161,25 @@ function checkContent(id) {
 			untick("#"+id+"_valid");
 			return false;
 		}
-		else tick("#"+id+"_valid");
+		else {
+		
+		if(id.startsWith("sex"))
+			id = "sex";
+		if(id.startsWith("job"))
+			id = "job_status";
+		
+		tick("#"+id+"_valid");
+		//alert(id);
+		container[id+"Set"] = 10;
+		
+		}
+		
 	}
 	
+	progress = 	(container['nameSet']+container['emailSet']+container['phoneSet']+container['addressSet']+container['dobSet'] +container['sexSet']+container['job_statusSet']+container['edu_institutionSet']+container['companySet']+10)/100;
+	//alert(progress);
+	loader.setProgress(progress);
+	document.getElementById("progress").value = progress;
 	return true;
 }
 

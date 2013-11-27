@@ -31,16 +31,6 @@ see the file license.txt that was included with the plugin bundle.
 		    value: '0kb'  // initialise text label to this value
 		});
      */
-	 
-		
-	$("#wrapper").percentageLoader{
-		    width : 256,  // width in pixels
-		    height : 256, // height in pixels
-		    progress: 0,  // initialise progress bar position, within the range [0..1]
-		    value: '0kb'  // initialise text label to this value
-	});
-	
-	
     $.fn.percentageLoader = function (params) {
         var settings, canvas, percentageText, valueText, items, i, item, selectors, s, ctx, progress,
             value, cX, cY, lingrad, innerGrad, tubeGrad, innerRadius, innerBarRadius, outerBarRadius,
