@@ -67,8 +67,8 @@ var loader = $("#progressbar").percentageLoader({
 	</select>
 </div>
 
-<div class="people_area">
-<br /><br /><br />
+<div id="people_area" class="people_area">
+
 </div>
 
 
