@@ -17,6 +17,7 @@ input,textarea {
 }
 
 label {
+	color:#f70048;
 	font-family:BebasNeueRegular,Arial;
 	font-size:150%;
 	text-shadow: 1px 1px #666;
@@ -93,7 +94,7 @@ body {
 #wrapper {
 	margin-top:20px;
 	width:750px;
-	height:1350px;
+	//height:1350px;
 	padding:30px;
 	background-color:rgba(255,255,255,1);
 	margin-left:auto;
@@ -108,13 +109,25 @@ body {
 table {
 
 	width:100%;
-	text-align:center;
+	text-align:left;
 
 }
 
 td,th {
 
 	padding:2px;
+
+}
+
+th {
+	
+	color:#f70048;
+	
+}
+
+td{ 
+
+	color:#ffdde7;
 
 }
 
@@ -127,7 +140,7 @@ div.people_list {
 	margin-left:auto;
 	margin-right:auto;
 	font-size:120%;
-	font-weight:bold;
+	//font-weight:bold;
 	text-shadow: 1px 1px #666;
 	
 }

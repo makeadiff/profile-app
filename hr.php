@@ -38,10 +38,10 @@ $cities = $sql->getById("SELECT id,name FROM City ORDER BY name");
 
 
 
-
+<h1>HR Dashboard</h1>
 
 <div id="wrapper">
-<h1>HR Dashboard</h1>
+
 
 <div id="progressbar">
 
