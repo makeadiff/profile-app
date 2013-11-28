@@ -13,7 +13,7 @@ $cities = $sql->getById("SELECT id,name FROM City ORDER BY name");
 <head>
 <title>Profile App</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link type="text/css" rel="stylesheet" href="css/style.css" />
+<link type="text/css" rel="stylesheet" href="css/hr.css" />
 <link type="text/css" rel="stylesheet" href="css/profile.css" />
 <link type="text/css" rel="stylesheet" href="js/calendar/calendar.css" />
 <link type="text/css" rel="stylesheet" href="css/jquery.percentageloader-0.1.css" />
@@ -68,7 +68,7 @@ var loader = $("#progressbar").percentageLoader({
 </div>
 
 <div class="people_area">
-
+<br /><br /><br />
 </div>
 
 
