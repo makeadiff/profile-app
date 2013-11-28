@@ -4,7 +4,7 @@ require('../../common.php');
 $city_id = intval($_REQUEST['city_id']);
 
 
-$people = $sql->get("SELECT id, name,phone,profile_progress FROM User WHERE status='1' AND user_type='volunteer' AND city_id=$city_id");
+$people = $this->db->query("SELECT id, name,phone,profile_progress FROM User WHERE status='1' AND user_type='volunteer' AND city_id=$city_id")->result();
 
 if($people) {
 print "<table>";
