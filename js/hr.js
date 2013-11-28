@@ -4,6 +4,8 @@ function init() {
 	$("#city_id").change(function() {
 		if(this.value != "0") {
 			
+			
+			
 			var city_id = this.value;
 			
 			

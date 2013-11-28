@@ -25,7 +25,7 @@ $cities = $sql->getById("SELECT id,name FROM City ORDER BY name");
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/calendar/calendar.js"></script>
-<script type="text/javascript" src="js/profile.js"></script>
+<script type="text/javascript" src="js/hr.js"></script>
 
 <script type="text/javascript" src="js/jquery.percentageloader/src/jquery.percentageloader-0.1.js"></script>
 
