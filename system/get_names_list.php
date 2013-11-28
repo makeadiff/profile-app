@@ -11,9 +11,9 @@ if($people) {
 print "<table>";
 print"<th>Name</th><th>Phone</th><th>Progress %</th>";
 foreach($people as $person) {
-	print "<tr><td>$person['name']</td><td>$person['phone']</td><td>$person['profile_progress']</td></tr>";
+	print "<tr><td>$person[name]</td><td>$person[phone]</td><td>$person[profile_progress]</td></tr>";
 	$counter++;
-	$city_progress += $person['profile_progress']; 
+	$city_progress = $city_progress + $person['profile_progress']; 
 }
 
 $city_progress = $city_progress/$counter;
