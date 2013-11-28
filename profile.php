@@ -90,18 +90,18 @@ var loader = $("#progressbar").percentageLoader({
 
 <tr><td>
 <label>Professional Status</label><br />
-<input type="radio" name="job_status" value="student" id="job_status_student" /> <label for="job_status_student">Student</label>
-<input type="radio" name="job_status" value="working" id="job_status_working" /> <label for="job_status_working">Working</label>
-<input type="radio" name="job_status" value="other" id="job_status_other" /> <label for="job_status_other">Other</label>
+<input type="radio" name="job_status" value="student" id="job_status_student" <?php  if($user_data['job_status'] == 'student') echo "checked='checked'"; ?> /> <label for="job_status_student">Student</label>
+<input type="radio" name="job_status" value="working" id="job_status_working" <?php  if($user_data['job_status'] == 'working') echo "checked='checked'"; ?>/> <label for="job_status_working">Working</label>
+<input type="radio" name="job_status" value="other" id="job_status_other" <?php  if($user_data['sex'] == 'other') echo "checked='checked'"; ?>/> <label for="job_status_other">Other</label>
 </td>
 <td><img src="images/valid.png" id="job_status_valid" class="status" /></td>
 <td></td></tr>
 
-<tr><td class="fields"><label for="edu_institution">Educational Institution</label><br /><input class="must input" type="text" name="edu_institution" id="edu_institution" /></td>
+<tr><td class="fields"><label for="edu_institution">Educational Institution</label><br /><input class="must input" type="text" name="edu_institution" id="edu_institution" value="<?php echo $user_data['edu_institution'];?>" /></td>
 <td class="status-area"><img src="images/invalid.png" id="edu_institution_valid" class="status" /></td>
 <td class="help-area"><p class="help">Educational Institution you are studying in/have studied in</p></td></tr>
 
-<tr><td class="fields"><label for="company">Company</label><br /><input class="must input" type="text" name="company" id="company" /></td>
+<tr><td class="fields"><label for="company">Company</label><br /><input class="must input" type="text" name="company" id="company" value="<?php echo $user_data['company'];?>"/></td>
 <td class="status-area"><img src="images/invalid.png" id="company_valid" class="status" /></td>
 <td class="help-area"><p class="help">If working, company you are working at</p></td></tr>
 

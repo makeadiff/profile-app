@@ -93,6 +93,13 @@ body {
 	
 }
 
+li {
+
+	font-weight:bold;
+	font-size:120%;
+	color:#ffffff;
+}
+
 .people_area {
 
 	margin-left:130px;
