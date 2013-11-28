@@ -6,7 +6,7 @@ function init() {
 			
 			var city_id = $("#city_id").val();
 			
-			alert("True");
+			//alert("True");
 			
 			$.ajax("system/get_names_list.php?city_id="+city_id, {
 				"success": function(data) {
@@ -20,8 +20,7 @@ function init() {
 			});
 			
 		}
-		else
-			alert("False");
+		
 	});
 
 	
