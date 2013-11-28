@@ -4,6 +4,9 @@ require '../common.php';
 $user_id = intval($_REQUEST['user_id']);
 if(!$user_id) header("Location: index.php");
 
+$progress = $_REQUEST['progress'] * 100;
+
+
 $sql->update('User', array(
 	'name'	=> $_REQUEST['name'],
 	'email'	=> $_REQUEST['email'],
@@ -14,10 +17,11 @@ $sql->update('User', array(
 	'job_status' => $_REQUEST['job_status'],
 	'edu_institution' => $_REQUEST['edu_institution'],
 	'company' => $_REQUEST['company'],
-	'profile_progress' => $_REQUEST['progress'],
+	'profile_progress' => $progress,
 ), "id=$user_id");
 
 ?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
