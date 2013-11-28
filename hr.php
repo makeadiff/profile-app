@@ -69,7 +69,7 @@ var loader = $("#progressbar").percentageLoader({
 
 <br /><br />
 
-<div id="people_area" class="people_area">
+<div id="people_list" class="people_list">
 
 </div>
 

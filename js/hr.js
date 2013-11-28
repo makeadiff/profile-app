@@ -10,7 +10,7 @@ function init() {
 			
 			$.ajax("system/get_names_list.php?city_id="+city_id, {
 				"success": function(data) {
-					$("#people_area").html(data);
+					$("#people_list").html(data);
 				},
 				error: function() {
 					alert("System Error: Can't get names. Please try later");
