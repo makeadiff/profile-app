@@ -50,8 +50,11 @@ function init() {
 	checkContent("name");
 	checkContent("address");
 	checkContent("dob");
-	checkContent("sex");
-	checkContent("job_status");
+	checkContent("sex_f");
+	checkContent("sex_m");
+	checkContent("job_status_working");
+	checkContent("job_status_student");
+	checkContent("job_status_other");
 	checkContent("edu_institution");
 	checkContent("company");
 	
