@@ -75,6 +75,7 @@ function init() {
 					alert("Code Verified");
 					tick("#email_valid");
 					$("#email_code_verified").val($("#email").val());
+					container[id+"Set"] = 10;
 				}
 				else alert("Invalid code. Make sure that the code you entered is exactly the same as what you got.");
 			},
@@ -100,6 +101,7 @@ function init() {
 					alert("Code Verified");
 					tick("#phone_valid");
 					$("#phone_code_verified").val($("#phone").val());
+					container[id+"Set"] = 10;
 				}
 				else alert("Invalid code. Make sure that the code you entered is exactly the same as what you got.");
 			},
@@ -159,6 +161,7 @@ function checkContent(id) {
 			$("#"+id+"_code_verified").val("")
 			return false;
 		}
+		
 	} else {
 		if(!ele.val()) {
 			untick("#"+id+"_valid");
