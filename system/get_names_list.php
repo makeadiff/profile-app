@@ -24,7 +24,7 @@ $city_progress = ($city_progress/$counter)/100;
 print "</table>";
 
 print "<script type='text/javascript' > loader.setProgress($city_progress); </script>";
-print '<script type="text/javascript" > document.getElementsById("no_completed")[0].innerHTML = "Completed : ";' + $verified + '/' + $counter + '"; </script>';
+print '<script type="text/javascript" > document.getElementsById("no_completed")[0].innerHTML = "Completed : ' + $verified + '/' + $counter + '"; </script>';
 
 }
 
