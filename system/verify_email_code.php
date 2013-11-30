@@ -1,4 +1,6 @@
 <?php
+require_once '../common.php';
+
 $email_code = $_REQUEST['email_code'];
 $email = $_REQUEST['email'];
 $user_id = intval($_REQUEST['user_id']);
