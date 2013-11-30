@@ -159,9 +159,9 @@ function checkContent(id) {
 		}
 		else {
 		
-		if(id.startsWith("sex"))
+		if(id.lastIndexOf("sex",0) == 0)
 			id = "sex";
-		if(id.startsWith("job"))
+		if(id.lastIndexOf("job",0) == 0)
 			id = "job_status";
 		
 		tick("#"+id+"_valid");
