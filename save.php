@@ -21,7 +21,6 @@ $sql->update('User', array(
 ), "id=$user_id");
 
 ?>
-
 <!DOCTYPE HTML>
 <html>
 <head>

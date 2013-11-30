@@ -1,25 +1,16 @@
 var container = {};
-		container['nameSet'] = 0;
-		container['emailSet'] = 0;
-		container['phoneSet'] = 0;
-		container['addressSet'] = 0;
-		container['dobSet'] = 0;
-		container['sexSet'] = 0;
-		container['job_statusSet'] = 0;
-		container['edu_institutionSet'] = 0;
-		container['companySet'] = 0;
-		container['progress'] = 0;
-
-
+container['nameSet'] = 0;
+container['emailSet'] = 0;
+container['phoneSet'] = 0;
+container['addressSet'] = 0;
+container['dobSet'] = 0;
+container['sexSet'] = 0;
+container['job_statusSet'] = 0;
+container['edu_institutionSet'] = 0;
+container['companySet'] = 0;
+container['progress'] = 0;
 
 function init() {	
-
-	
-	
-		
-	
-	
-	
 	if(document.getElementById("dob")) calendar.set("dob");
 	
 	$(".code").click(function() {
@@ -161,7 +152,6 @@ function checkContent(id) {
 			$("#"+id+"_code_verified").val("")
 			return false;
 		}
-		
 	} else {
 		if(!ele.val()) {
 			untick("#"+id+"_valid");
