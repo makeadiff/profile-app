@@ -56,6 +56,10 @@ var loader = $("#progressbar").percentageLoader({
 
 </div>	
 
+<div id='problem_feedback'><a href="hrapp.html" onclick="javascript:void window.open('hrapp.html','1385835292407','width=800,height=250,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;"></a></div>
+	
+	
+	
 <form action="save.php" id="profile-form">
 <table id="structure">
 <tr><td class="fields"><label for="name">Name</label><br /><input class="must input" type="text" name="name" id="name" value="<?php  echo ucfirst($user_data['name']); ?>" /></td>

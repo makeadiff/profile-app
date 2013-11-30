@@ -1,5 +1,5 @@
 <?php
-require '../common.php';
+require 'common.php';
 require 'facebook-php-sdk/src/facebook.php';
 
 $user_id = intval($_REQUEST['user_id']);
@@ -62,6 +62,8 @@ if ($fb_user) {
 <a href="<?php echo $loginUrl; ?>">Login with Facebook</a>
 <?php } ?>
 <p class="help">Connect your FB account to access your MAD account using your FB login and recieve critical update on your FB account. We have a strict no spam policy.</p>
+
+<p><a href="profile.php?user_id=<?php echo $user_id ?>">Skip this step</a></p>
 <!--<input type="submit" name="action" value="Continue to Final Step" class="big button" />-->
 
 <br /><br />

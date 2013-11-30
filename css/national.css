@@ -17,6 +17,7 @@ input,textarea {
 }
 
 label {
+	
 	font-family:BebasNeueRegular,Arial;
 	font-size:150%;
 	text-shadow: 1px 1px #666;
@@ -49,12 +50,34 @@ input.verification {
 	margin-top:-20px;
 }
 
+.city_loader {
+
+	width : 160px;
+	height : 230px;
+	float : left;
+	margin-right : 70px;
+	margin-left : 20px;
+	margin-bottom : 50px;
+	
+
+}
+
 h2.label{
 	font-family:BebasNeueRegular,Arial;
-	margin-top: 40px;
-	margin-left: 80px;
+	//margin-top: 40px;
+	margin-left: auto;
+	margin-right: auto;
 	font-size: xx-large;
-	text-shadow: 2px 2px #666;
+	//text-shadow: 2px 2px #666;
+	color:#f70048;
+}
+
+h2.no_completed{
+	font-family:BebasNeueRegular,Arial;
+	text-align:center;
+	font-size: xx-large;
+	//text-shadow: 2px 2px #666;
+	color:#f70048;
 }
 
 .styled-select select {
@@ -86,39 +109,16 @@ textarea {
 
 }
 
-#problem_feedback {
-
-	background:transparent url(../images/problem.png) no-repeat scroll 0px 0px;
-    height:170px;
-    left:0;
-    position:fixed;
-    top:600px;
-    width:60px;
-
-
-}
-
-#problem_feedback:hover{
-        
-		background-position:-5px 0px;
-}
-
-#problem_feedback a{
-    display:block;
-    height:170px;
-    width:60px;
-}
-
 
 body {
-	background:#ffffff url(../images/a.jpg) no-repeat 50% 0;
+	background:#f70048;
 }
 #wrapper {
 	margin-top:20px;
 	width:750px;
-	//height:1350px;
+	height:2200px;
 	padding:30px;
-	background-color:rgba(255,255,255,0.1);
+	background-color:rgba(255,255,255,1);
 	margin-left:auto;
 	margin-right:auto;
 	
@@ -126,6 +126,46 @@ body {
 
 #progressbar {
 	margin-left:300px;
+}
+
+table {
+
+	width:100%;
+	text-align:left;
+
+}
+
+td,th {
+
+	padding:2px;
+
+}
+
+th {
+	
+	color:#f70048;
+	
+}
+
+td{ 
+
+	color:#b2b2b2;
+
+}
+
+tr:hover{
+	background-color:#ffdde7;
+	
+}
+
+div.people_list {
+
+	margin-left:auto;
+	margin-right:auto;
+	font-size:120%;
+	//font-weight:bold;
+	//text-shadow: 1px 1px #666;
+	
 }
 
 .input {

@@ -11,7 +11,7 @@ if(!$person) die("Invalid User ID");
 $position = 'MAD Volunteer';
 extract($person);
 
-$user_url = 'http://makeadiff.in/user/' . $user_id;
+$user_url = 'http://makeadiff.in/volunteer/' . $user_id;
 
 $frame = QRcode::text($user_url, false, QR_ECLEVEL_L, 4,  0); 
 $qrcode = get_qrcode($frame);
@@ -35,6 +35,9 @@ imageCopyResampled($newimage,$im,0,0,0,0,$width,$height,$width,$height);
 imagecopyresampled($newimage, $qrcode, 20, 20, 0, 0, 100, 100, 100, 100);
 
 header("Content-type: image/png");
+header('Content-Disposition: attachment; filename=Card.png');
+header('Pragma: no-cache');
+
 imagepng($newimage);
 imagedestroy($newimage);
 
