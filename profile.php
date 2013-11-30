@@ -1,6 +1,5 @@
 <?php
-
-require '../common.php';
+require 'common.php';
 
 $user_id = intval($_REQUEST['user_id']);
 if(!$user_id) header("Location: index.php");
@@ -72,7 +71,7 @@ var loader = $("#progressbar").percentageLoader({
 <input type="text" value="Verificaiton Code" name="email_code" id="email_code" class="code" /><!-- 1e339 -->
 <input type="hidden" value="" name="email_code_verified" id="email_code_verified" />
 <input type="button" class="button" value="Verify Code" name="action" id="verify_email_code" /></td>
-<td><img src="images/invalid.png" id="email_valid" class="status" /></td>
+<td><img src="images/<?php if(isVerified('email', $user_id)) echo 'valid'; else echo 'invalid'; ?>.png" id="email_valid" class="status" /></td>
 <td><p class="help">Enter your email address and click the "Send Verificaiton code" buttion. This will send a code to your email inbox. Copy-paste that code into the input field to verify your email address.</p></td></tr>
 
 <tr><td><label for="phone">Phone</label><br />
@@ -81,7 +80,7 @@ var loader = $("#progressbar").percentageLoader({
 <input type="text" value="Verificaiton Code" name="phone_code" id="phone_code" class="code" /><!-- d58be -->
 <input type="hidden" value="" name="phone_code_verified" id="phone_code_verified" />
 <input type="button" class="button" value="Verify Code" name="action" id="verify_phone_code" /></td>
-<td><img src="images/invalid.png" id="phone_valid" class="status" /></td>
+<td><img src="images/<?php if(isVerified('sms', $user_id)) echo 'valid'; else echo 'invalid'; ?>.png" id="phone_valid" class="status" /></td>
 <td><p class="help">Enter your phone number and click the "Send Verificaiton code" buttion. This will send a code as SMS. Enter that code into the input field to verify your phone number.</p></td></tr>
 
 <tr><td>
