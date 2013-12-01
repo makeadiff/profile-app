@@ -1,5 +1,5 @@
 <?php
-require('../../common.php');
+require_once '../common.php';
 
 $city_id = intval($_REQUEST['city_id']);
 

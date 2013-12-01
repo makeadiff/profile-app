@@ -1,4 +1,6 @@
 <?php
+require_once '../common.php';
+
 $phone_code = $_REQUEST['phone_code'];
 $phone = $_REQUEST['phone'];
 $user_id = intval($_REQUEST['user_id']);

@@ -1,5 +1,5 @@
 <?php
-require("../../common.php");
+require_once '../common.php';
 
 $phone = $_REQUEST['phone'];
 $user_id = intval($_REQUEST['user_id']);

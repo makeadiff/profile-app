@@ -1,5 +1,5 @@
 <?php
-require '../common.php';
+require_once dirname(dirname(__FILE__)) . '/common.php';
 
 function isVerified($type, $user_id) {
 	global $sql;

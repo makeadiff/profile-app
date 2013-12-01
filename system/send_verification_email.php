@@ -1,6 +1,6 @@
 <?php
-require("../../common.php");
-ini_set('display_errors','1');
+require_once '../common.php';
+
 $email = $_REQUEST['email'];
 $user_id = intval($_REQUEST['user_id']);
 
