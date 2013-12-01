@@ -67,6 +67,11 @@ function init() {
 					tick("#email_valid");
 					$("#email_code_verified").val($("#email").val());
 					container[id+"Set"] = 10;
+					
+					progress = 	(container['nameSet']+container['emailSet']+container['phoneSet']+container['addressSet']+container['dobSet'] +container['sexSet']+container['job_statusSet']+container['edu_institutionSet']+container['companySet']+10)/100;
+					//alert(progress);
+					loader.setProgress(progress);
+					document.getElementById("progress").value = progress;
 				}
 				else alert("Invalid code. Make sure that the code you entered is exactly the same as what you got.");
 			},
@@ -93,6 +98,11 @@ function init() {
 					tick("#phone_valid");
 					$("#phone_code_verified").val($("#phone").val());
 					container[id+"Set"] = 10;
+					
+					progress = 	(container['nameSet']+container['emailSet']+container['phoneSet']+container['addressSet']+container['dobSet'] +container['sexSet']+container['job_statusSet']+container['edu_institutionSet']+container['companySet']+10)/100;
+					//alert(progress);
+					loader.setProgress(progress);
+					document.getElementById("progress").value = progress;
 				}
 				else alert("Invalid code. Make sure that the code you entered is exactly the same as what you got.");
 			},
