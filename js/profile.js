@@ -66,7 +66,7 @@ function init() {
 					alert("Code Verified");
 					tick("#email_valid");
 					$("#email_code_verified").val($("#email").val());
-					container[id+"Set"] = 10;
+					container["emailSet"] = 10;
 					
 					progress = 	(container['nameSet']+container['emailSet']+container['phoneSet']+container['addressSet']+container['dobSet'] +container['sexSet']+container['job_statusSet']+container['edu_institutionSet']+container['companySet']+10)/100;
 					//alert(progress);
@@ -97,7 +97,7 @@ function init() {
 					alert("Code Verified");
 					tick("#phone_valid");
 					$("#phone_code_verified").val($("#phone").val());
-					container[id+"Set"] = 10;
+					container["phoneSet"] = 10;
 					
 					progress = 	(container['nameSet']+container['emailSet']+container['phoneSet']+container['addressSet']+container['dobSet'] +container['sexSet']+container['job_statusSet']+container['edu_institutionSet']+container['companySet']+10)/100;
 					//alert(progress);
