@@ -7,7 +7,7 @@ if(!$user_id) header("Location: index.php");
 $progress = $_REQUEST['progress'] * 100;
 
 
-$sql->update('User', array(
+$affected = $sql->update('User', array(
 	'name'	=> $_REQUEST['name'],
 	'email'	=> $_REQUEST['email'],
 	'phone'	=> $_REQUEST['phone'],
@@ -19,6 +19,22 @@ $sql->update('User', array(
 	'company' => $_REQUEST['company'],
 	'profile_progress' => $progress,
 ), "id=$user_id");
+
+$body = <<<END
+Hey $_REQUEST[name],
+
+Your updated data has been saved to our database.
+
+You can find your ID at http://makeadiff.in/apps/profile/create_card.php?user_id=$user_id
+
+Thank you for your cooperation :-)
+
+--
+MAD Tech Team
+http://makeadiff.in/
+END;
+
+email($_REQUEST['email'], 'Profile Verification Complete', $body);
 
 ?>
 <!DOCTYPE HTML>
