@@ -12,34 +12,27 @@ $position = 'MAD Volunteer';
 extract($person);
 
 $user_url = 'http://makeadiff.in/volunteer/' . $user_id;
-
 $frame = QRcode::text($user_url, false, QR_ECLEVEL_L, 4,  0); 
 $qrcode = get_qrcode($frame);
 
-
+header("Content-type: image/png");
 $crayola = imagecolorallocate($im, 248, 0, 73);
 $black = imagecolorallocate($im, 0, 0, 0);
 
 ImageTtfText($im, 35, 0, 20, 280, $crayola, "fonts/BebasNeue-webfont.ttf", $name); // Name
 ImageTtfText($im, 15, 0, 20, 310, $black, "fonts/BebasNeue-webfont.ttf", $position); //Position
 
-ImageTtfText($im, 15, 0, 55, 360, $black, "fonts/Trebuchet.ttf", $phone); // Phone
-ImageTtfText($im, 15, 0, 55, 390, $black, "fonts/Trebuchet.ttf", $email); // EMail
+ImageTtfText($im, 15, 0, 60, 350, $black, "fonts/Trebuchet.ttf", $phone); // Phone
+ImageTtfText($im, 15, 0, 60, 380, $black, "fonts/Trebuchet.ttf", $email); // EMail
 
-ImageTtfText($im, 20, 0, 20, 140, $crayola, "fonts/Trebuchet.ttf", $user_id); // EMail
+ImageTtfText($im, 20, 0, 20, 140, $crayola, "fonts/Trebuchet.ttf", $user_id); // ID
 
-$width = ImageSx($im);
-$height= ImageSy($im);
-$newimage = imagecreatetruecolor($width, $height);
-imageCopyResampled($newimage,$im,0,0,0,0,$width,$height,$width,$height);
-imagecopyresampled($newimage, $qrcode, 20, 20, 0, 0, 100, 100, 100, 100);
+imagecopyresampled($im, $qrcode, 20, 20, 0, 0, 100, 100, 100, 100);
 
-header("Content-type: image/png");
 header('Content-Disposition: attachment; filename=Card.png');
 header('Pragma: no-cache');
-
-imagepng($newimage);
-imagedestroy($newimage);
+imagepng($im);
+imagedestroy($im);
 
 
 function get_qrcode($frame) {
