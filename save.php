@@ -1,5 +1,5 @@
 <?php
-require '../common.php';
+require 'common.php';
 
 $user_id = intval($_REQUEST['user_id']);
 if(!$user_id) header("Location: index.php");

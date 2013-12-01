@@ -59,7 +59,7 @@ var loader = $("#progressbar").percentageLoader({
 	
 	
 	
-<form action="save.php" id="profile-form">
+<form action="save.php" id="profile-form" method="post">
 <table id="structure">
 <tr><td class="fields"><label for="name">Name</label><br /><input class="must input" type="text" name="name" id="name" value="<?php  echo ucfirst($user_data['name']); ?>" /></td>
 <td class="status-area"><img src="images/invalid.png" id="name_valid" class="status" /></td>
