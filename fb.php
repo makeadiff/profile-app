@@ -55,15 +55,18 @@ if ($fb_user) {
 <body>
 
 <div id="wrapper">
-<h1>Complete your profile</h1>
+<h1>Facebook Connect</h1>
+
+<div id='problem_feedback'><a href="hrapp.html" onclick="javascript:void window.open('hrapp.html','1385835292407','width=800,height=250,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;"></a></div>
+
 
 <form action="profile.php" id="profile-form">
 <?php if (!empty($fb_user)) { ?>Logged into FB<?php } else { ?>
-<a href="<?php echo $loginUrl; ?>">Login with Facebook</a>
+<p style = "text-align:center;font-size:130%;font-weight:bold;"><a href="<?php echo $loginUrl; ?>">Login with Facebook</a></p>
 <?php } ?>
-<p class="help">Connect your FB account to access your MAD account using your FB login and recieve critical update on your FB account. We have a strict no spam policy.</p>
+<p class="help" style = "text-align:center;">Connect your FB account to access your MAD account using your FB login and recieve critical update on your FB account. We have a strict no spam policy.</p>
 
-<p><a href="profile.php?user_id=<?php echo $user_id ?>">Skip this step</a></p>
+<p style = "text-align:right;font-size:90%;"><a href="profile.php?user_id=<?php echo $user_id ?>">Skip this step</a></p>
 <!--<input type="submit" name="action" value="Continue to Final Step" class="big button" />-->
 
 <br /><br />

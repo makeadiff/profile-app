@@ -2,9 +2,10 @@
 require 'common.php';
 
 $user_id = intval($_REQUEST['user_id']);
+
 if(!$user_id) header("Location: index.php");
 
-$user_data = $sql->getAssoc("SELECT name, email, phone, sex, photo, address, birthday, bio, job_status, edu_institution, company FROM User WHERE id=$user_id");
+$user_data = $sql->getAssoc("SELECT name, email, phone, sex, photo, address, birthday, bio, job_status, edu_institution, company, facebook_id FROM User WHERE id=$user_id");
 
 
 ?>
@@ -124,8 +125,9 @@ var loader = $("#progressbar").percentageLoader({
 </table>
 <br /><br />
 <input type="submit" name="action" class="button big" value="Finish" />
-<input type="hidden" name="user_id" id="user_id" value="<?php  echo $user_id ?>" />
-<input type="hidden" name="progress" id="progress" />
+<input type="hidden" name="user_id" id="user_id" value="<?php  echo $user_id; ?>" />
+<input type="hidden" name="facebook_id" id="facebook_id" value="<?php  echo $user_data['facebook_id']; ?>" />
+<input type="hidden" name="progress" id="progress" /> <!--Progress set from profile.js-->
 </form>
 </div>
 

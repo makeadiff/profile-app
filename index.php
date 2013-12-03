@@ -1,7 +1,7 @@
 <?php
 require '../common.php';
 
-$cities = $sql->getById("SELECT id,name FROM City ORDER BY name");
+$cities = $sql->getById("SELECT id,name FROM City WHERE name='Nagpur' or name='Leadership' ORDER BY name");
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -16,9 +16,13 @@ $cities = $sql->getById("SELECT id,name FROM City ORDER BY name");
 
 <div id="wrapper">	
 
+<div id='problem_feedback'><a href="hrapp.html" onclick="javascript:void window.open('hrapp.html','1385835292407','width=800,height=250,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;"></a></div>
+
+
 <h1 class="top">Find Yourself</h1>
 
 <h2 class="label">City</h2>
+
 
 <div class="styled-select">
 	<select id="city_id" name="city_id">

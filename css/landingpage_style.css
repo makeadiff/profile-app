@@ -31,6 +31,29 @@ h2.label{
    -webkit-appearance: none;
 }
 
+#problem_feedback {
+
+	background:transparent url(../images/problem.png) no-repeat scroll 0px 0px;
+    height:170px;
+    left:0;
+    position:fixed;
+    top:400px;
+    width:60px;
+
+
+}
+
+#problem_feedback:hover{
+        
+		background-position:-5px 0px;
+}
+
+#problem_feedback a{
+    display:block;
+    height:170px;
+    width:60px;
+}
+
  .styled-select {
 	margin-left:150px;
    width: 460px;

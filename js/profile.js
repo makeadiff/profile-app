@@ -9,6 +9,7 @@ container['job_statusSet'] = 0;
 container['edu_institutionSet'] = 0;
 container['companySet'] = 0;
 container['progress'] = 0;
+container['facebook_idSet'] = 0;
 
 function init() {	
 	if(document.getElementById("dob")) calendar.set("dob");
@@ -49,6 +50,14 @@ function init() {
 	checkContent("edu_institution");
 	checkContent("company");
 	
+	if($("#facebook_id").val()!=""){
+		container["facebook_idSet"] = 10;
+		//alert("True");
+		}
+	else{ 
+		container["facebook_idSet"] = 0;
+		//alert("False");
+		}
 	$("#send_email_code").click(function() {
 		$.ajax("system/send_verification_email.php?email="+$("#email").val()+"&email="+$("#email").val()+"&user_id="+$("#user_id").val(), {
 			success: function(data) {
@@ -68,7 +77,7 @@ function init() {
 					$("#email_code_verified").val($("#email").val());
 					container["emailSet"] = 10;
 					
-					progress = 	(container['nameSet']+container['emailSet']+container['phoneSet']+container['addressSet']+container['dobSet'] +container['sexSet']+container['job_statusSet']+container['edu_institutionSet']+container['companySet']+10)/100;
+					progress = 	(container['nameSet']+container['emailSet']+container['phoneSet']+container['addressSet']+container['dobSet'] +container['sexSet']+container['job_statusSet']+container['edu_institutionSet']+container['companySet']+container['facebook_idSet'])/100;
 					//alert(progress);
 					loader.setProgress(progress);
 					document.getElementById("progress").value = progress;
@@ -99,7 +108,7 @@ function init() {
 					$("#phone_code_verified").val($("#phone").val());
 					container["phoneSet"] = 10;
 					
-					progress = 	(container['nameSet']+container['emailSet']+container['phoneSet']+container['addressSet']+container['dobSet'] +container['sexSet']+container['job_statusSet']+container['edu_institutionSet']+container['companySet']+10)/100;
+					progress = 	(container['nameSet']+container['emailSet']+container['phoneSet']+container['addressSet']+container['dobSet'] +container['sexSet']+container['job_statusSet']+container['edu_institutionSet']+container['companySet']+container['facebook_idSet'])/100;
 					//alert(progress);
 					loader.setProgress(progress);
 					document.getElementById("progress").value = progress;
@@ -182,7 +191,7 @@ function checkContent(id) {
 		
 	}
 	
-	progress = 	(container['nameSet']+container['emailSet']+container['phoneSet']+container['addressSet']+container['dobSet'] +container['sexSet']+container['job_statusSet']+container['edu_institutionSet']+container['companySet']+10)/100;
+	progress = 	(container['nameSet']+container['emailSet']+container['phoneSet']+container['addressSet']+container['dobSet'] +container['sexSet']+container['job_statusSet']+container['edu_institutionSet']+container['companySet']+container["facebook_idSet"])/100;
 	//alert(progress);
 	loader.setProgress(progress);
 	document.getElementById("progress").value = progress;

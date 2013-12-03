@@ -69,9 +69,12 @@ var loader = $("#progressbar").percentageLoader({
 
 <br /><br />
 
-<h2 id="no_completed" class="no_completed"></h2>
+
+
+
 
 <div id="people_list" class="people_list">
+
 
 </div>
 
