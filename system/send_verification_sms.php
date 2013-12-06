@@ -34,7 +34,7 @@ function sendSms($number, $message) {
 	$url = str_replace('&amp;', '&', getLink('http://enterprise.smsgupshup.com/GatewayAPI/rest?', 
 						$gupshup_param + array('msg'=>$message, 'send_to'=>$number)));
 	
-	print "Sending Text to $number: $message\n";
+	//print "Sending Text to $number: $message\n";
 	
 	// Comment the line below to disable Messageing
 	$data = load($url);
