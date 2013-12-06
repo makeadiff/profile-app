@@ -6,7 +6,7 @@ $user_id = intval($_REQUEST['user_id']);
 
 $code = substr(md5($user_id . '|' . $phone),0,5);
 
-$message = "Your mobile verification code for MADApp is: $code";
+$message = "Your mobile verification code for Profile App is: $code";
 sendSms($phone, $message);
 
 

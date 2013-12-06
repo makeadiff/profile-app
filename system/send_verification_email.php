@@ -16,7 +16,7 @@ Thank You
 MAD Tech Team
 END;
 
-$success = email($email, "MADApp Verification Code", $message);
+$success = email($email, "Profile App Verification Code", $message);
 
 if($success) {
 	print '{"success":"Sent verification email", "error":false}';

@@ -15,9 +15,12 @@ $user_url = 'http://makeadiff.in/volunteer/' . $user_id;
 $frame = QRcode::text($user_url, false, QR_ECLEVEL_L, 4,  0); 
 $qrcode = get_qrcode($frame);
 
+$user_id_padded = str_pad($user_id,6,"0",STR_PAD_LEFT);
+
 header("Content-type: image/png");
 $crayola = imagecolorallocate($im, 248, 0, 73);
 $black = imagecolorallocate($im, 0, 0, 0);
+$light_crayola = imagecolorallocate($im, 253, 191, 209);
 
 ImageTtfText($im, 35, 0, 20, 280, $crayola, "fonts/BebasNeue-webfont.ttf", $name); // Name
 ImageTtfText($im, 15, 0, 20, 310, $black, "fonts/BebasNeue-webfont.ttf", $position); //Position
@@ -25,7 +28,9 @@ ImageTtfText($im, 15, 0, 20, 310, $black, "fonts/BebasNeue-webfont.ttf", $positi
 ImageTtfText($im, 15, 0, 60, 350, $black, "fonts/Trebuchet.ttf", $phone); // Phone
 ImageTtfText($im, 15, 0, 60, 380, $black, "fonts/Trebuchet.ttf", $email); // EMail
 
-ImageTtfText($im, 20, 0, 20, 140, $crayola, "fonts/Trebuchet.ttf", $user_id); // ID
+ImageTtfText($im, 15, 0, 20, 140, $crayola, "fonts/BebasNeue-webfont.ttf", "MAD ID : "); //MAD ID
+
+ImageTtfText($im, 15, 0, 73, 140, $crayola, "fonts/BebasNeue-webfont.ttf", $user_id_padded); // ID
 
 imagecopyresampled($im, $qrcode, 20, 20, 0, 0, 100, 100, 100, 100);
 

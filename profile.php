@@ -22,7 +22,7 @@ $user_data = $sql->getAssoc("SELECT name, email, phone, sex, photo, address, bir
 
 
 <script type='text/javascript' > 
-  var progress,loaders; 
+  var loader; 
 </script>
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -49,7 +49,7 @@ $user_data = $sql->getAssoc("SELECT name, email, phone, sex, photo, address, bir
 
 <script type="text/javascript">
 
-var loader = $("#progressbar").percentageLoader({
+	loader = $("#progressbar").percentageLoader({
     width : 160, height : 160, progress : 0.0, value : ''});
 	
 </script>

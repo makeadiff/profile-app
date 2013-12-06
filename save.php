@@ -25,7 +25,9 @@ Hey $_REQUEST[name],
 
 Your updated data has been saved to our database.
 
-You can find your ID at http://makeadiff.in/apps/profile/create_card.php?user_id=$user_id
+You can find your personalized MAD business card at http://makeadiff.in/apps/profile/create_card.php?user_id=$user_id
+
+If the information on your card is wrong, please feel free to update it at http://bit.ly/madprofileapp to get your new business card.
 
 Thank you for your cooperation :-)
 
@@ -34,7 +36,7 @@ MAD Tech Team
 http://makeadiff.in/
 END;
 
-email($_REQUEST['email'], 'Profile Verification Complete', $body);
+email($_REQUEST['email'], 'Your MAD Business Card', $body);
 
 ?>
 <!DOCTYPE HTML>
