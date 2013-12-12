@@ -1,7 +1,7 @@
 <?php
 require '../common.php';
 
-$cities = $sql->getById("SELECT id,name FROM City WHERE name='Nagpur' or name='Leadership' ORDER BY name");
+$cities = $sql->getById("SELECT id,name FROM City WHERE name='Nagpur' or name='Leadership' or name='Mangalore' or name='Mumbai' or name='Coimbatore' or name='Dehradun' ORDER BY name");
 ?>
 <!DOCTYPE HTML>
 <html>
