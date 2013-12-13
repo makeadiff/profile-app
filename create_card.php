@@ -12,6 +12,7 @@ $position = 'MAD Volunteer';
 extract($person);
 
 $user_url = 'http://makeadiff.in/volunteer/' . $user_id;
+$user_url_card = 'www.makeadiff.in/volunteer/' . $user_id;
 $frame = QRcode::text($user_url, false, QR_ECLEVEL_L, 4,  0); 
 $qrcode = get_qrcode($frame);
 
@@ -31,6 +32,8 @@ ImageTtfText($im, 15, 0, 60, 380, $black, "fonts/Trebuchet.ttf", $email); // EMa
 ImageTtfText($im, 15, 0, 20, 140, $crayola, "fonts/BebasNeue-webfont.ttf", "MAD ID : "); //MAD ID
 
 ImageTtfText($im, 15, 0, 73, 140, $crayola, "fonts/BebasNeue-webfont.ttf", $user_id_padded); // ID
+
+ImageTtfText($im, 15, 0, 35, 410, $black, "fonts/Trebuchet.ttf", $user_url_card); // URL
 
 imagecopyresampled($im, $qrcode, 20, 20, 0, 0, 100, 100, 100, 100);
 
