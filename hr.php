@@ -11,7 +11,7 @@ $cities = $sql->getById("SELECT id,name FROM City ORDER BY name");
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Profile App</title>
+<title>MAD Cred</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link type="text/css" rel="stylesheet" href="css/hr.css" />
 <link type="text/css" rel="stylesheet" href="css/profile.css" />

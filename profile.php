@@ -13,7 +13,7 @@ $user_data = $sql->getAssoc("SELECT name, email, phone, sex, photo, address, bir
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Profile App</title>
+<title>MAD Cred</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link type="text/css" rel="stylesheet" href="css/style.css" />
 <link type="text/css" rel="stylesheet" href="css/profile.css" />
@@ -121,7 +121,7 @@ $user_data = $sql->getAssoc("SELECT name, email, phone, sex, photo, address, bir
 <input type="text" name="dob" vaule="" id="dob" class="input" value="<?php  echo $user_data['birthday']; ?>" />
 </td>
 <td><img src="images/invalid.png" id="dob_valid" class="status" /></td>
-<td class="help-area"><p class="help">That's it! You are done :)</p></td></tr>
+<td class="help-area"><p class="help">Complete all fields including Facebook login to get 100% completion. That's it! You are done :)</p></td></tr>
 </table>
 <br /><br />
 <input type="submit" name="action" class="button big" value="Finish" />

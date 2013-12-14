@@ -25,24 +25,24 @@ Hey $_REQUEST[name],
 
 Your updated data has been saved to our database.
 
-You can find your personalized MAD business card at http://makeadiff.in/apps/profile/create_card.php?user_id=$user_id
+You can find your personalized MAD Cred at http://makeadiff.in/apps/profile/create_card.php?user_id=$user_id
 
-If the information on your card is wrong, please feel free to update it at http://bit.ly/madprofileapp to get your new business card.
+If the information on your card is wrong, please feel free to update it at http://bit.ly/madcred to get your new MAD Cred.
 
-Thank you for your cooperation :-)
+Thank you for your cooperation :)
 
 --
 MAD Tech Team
 http://makeadiff.in/
 END;
 
-email($_REQUEST['email'], 'Your MAD Business Card', $body);
+email($_REQUEST['email'], 'Your MAD Cred', $body);
 
 ?>
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Profile App</title>
+<title>MAD Cred</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link type="text/css" rel="stylesheet" href="css/style.css" />
 <link type="text/css" rel="stylesheet" href="css/profile.css" />

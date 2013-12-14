@@ -1,12 +1,12 @@
 <?php
 require '../common.php';
 
-$cities = $sql->getById("SELECT id,name FROM City WHERE name='Nagpur' or name='Leadership' or name='Mangalore' or name='Mumbai' or name='Coimbatore' or name='Dehradun' ORDER BY name");
+$cities = $sql->getById("SELECT id,name FROM City ORDER BY name");
 ?>
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Profile App</title>
+<title>MAD Cred</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link type="text/css" rel="stylesheet" href="css/index.css" />
 <link type="text/css" rel="stylesheet" href="css/landingpage_style.css" />
