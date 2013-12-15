@@ -50,8 +50,8 @@ function get_qrcode($frame) {
 	$h = count($frame);
     $w = strlen($frame[0]);
     
-    $imgW = $w + 2 * $outerFrame;
-    $imgH = $h + 2 * $outerFrame;
+    $imgW = $w + 5 * $outerFrame;
+    $imgH = $h + 5 * $outerFrame;
     
     $base_image = imagecreate($imgW, $imgH);
     
