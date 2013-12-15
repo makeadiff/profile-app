@@ -11,7 +11,7 @@ if(!$person) die("Invalid User ID");
 $position = 'MAD Volunteer';
 extract($person);
 
-$user_url = 'http://makeadiff.in/volunteer/' . $user_id;
+$user_url = 'makeadiff.in/volunteer/' . $user_id;
 $user_url_card = 'www.makeadiff.in/volunteer/' . $user_id;
 $frame = QRcode::text($user_url, false, QR_ECLEVEL_L, 4,  0); 
 $qrcode = get_qrcode($frame);
@@ -50,8 +50,8 @@ function get_qrcode($frame) {
 	$h = count($frame);
     $w = strlen($frame[0]);
     
-    $imgW = $w + 5 * $outerFrame;
-    $imgH = $h + 5 * $outerFrame;
+    $imgW = $w + 2 * $outerFrame;
+    $imgH = $h + 2 * $outerFrame;
     
     $base_image = imagecreate($imgW, $imgH);
     
