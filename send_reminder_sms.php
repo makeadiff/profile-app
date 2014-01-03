@@ -28,7 +28,7 @@ if($people) {
 				$name = $whole_name[0];
 			
 			$message = "Dear $name, this is to remind you that you haven't registered for MAD Cred yet. Register now to get your own personalized MAD business card at : www.bit.ly/madcred";
-			$success = sendSms($person[phone], $message);
+			$success = sendSms($person['phone'], $message);
 			//$success = true;
 			
 			if($success)
