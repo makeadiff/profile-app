@@ -59,26 +59,22 @@ foreach($cities as $city_id=>$name){
 	$city_progress = 0;
 	$counter = 0;
 	$verified = 0;
-	$people = $sql->getById("SELECT id, name, profile_progress FROM User WHERE status='1' AND user_type='volunteer' AND city_id=$city_id");
+	$people = $sql->getById("SELECT id, name, profile_progress,verification_status FROM User WHERE status='1' AND user_type='volunteer' AND city_id=$city_id");
 
 	if($people) {
 
 		foreach($people as $person) {
 			$counter++;
 			
-			if (isset($person['profile_progress'])) {
- 
-				$city_progress = $city_progress + $person['profile_progress']; 
-				if($person['profile_progress'] == 100)
-					$verified++;	
-				
-				}
-			}
+			if( (strpos($person['verification_status'] , "email") !== false ) && (strpos($person['verification_status'] , "sms") !== false ) )
+				$verified++;
+		}
+		
+		$percentage = round((($verified/$counter)*100),0,PHP_ROUND_HALF_DOWN);
 
-		$city_progress = ($city_progress/$counter)/100;
+		
 
-		echo "
-		<script type='text/javascript' > loader$city_id.setProgress($city_progress); </script>";	
+		echo "<script type='text/javascript' > loader$city_id.setProgress($percentage); </script>";	
 	
 		}	
 	}
