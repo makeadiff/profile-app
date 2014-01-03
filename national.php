@@ -72,7 +72,7 @@ foreach($cities as $city_id=>$name){
 				$verified++;
 		}
 		
-		$percentage = ($verified/$counter)/100;
+		$percentage = $verified/$counter;
 
 		
 
