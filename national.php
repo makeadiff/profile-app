@@ -56,10 +56,12 @@ foreach($cities as $city_id=>$name){
 			</script>
 		</div>";
 		
-	$city_progress = 0;
+	
 	$counter = 0;
 	$verified = 0;
-	$people = $sql->getById("SELECT id, name, profile_progress,verification_status FROM User WHERE status='1' AND user_type='volunteer' AND city_id=$city_id");
+	$percentage = 0;
+	
+	$people = $sql->getById("SELECT id, name, verification_status FROM User WHERE status='1' AND user_type='volunteer' AND city_id=$city_id");
 
 	if($people) {
 
@@ -70,7 +72,7 @@ foreach($cities as $city_id=>$name){
 				$verified++;
 		}
 		
-		$percentage = round((($verified/$counter)),0,PHP_ROUND_HALF_DOWN);
+		$percentage = ($verified/$counter)/100;
 
 		
 
