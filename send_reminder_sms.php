@@ -12,7 +12,7 @@ if($people) {
 	
 		
 		
-		if( (strpos($person['verification_status'] , "email") == false ) && (strpos($person['verification_status'] , "sms") == false ) && ($person['phone'])){
+		if( (strpos($person['verification_status'] , "email") == false ) && (strpos($person['verification_status'] , "sms") == false ) && ($person['phone']) && ($person['id']>13208)){
 		
 			$counter++;
 			
@@ -36,7 +36,7 @@ if($people) {
 			else
 				$info = "Failed";
 				
-			echo "$name $person[phone] $info<br>";
+			echo "$person[id] $name $person[phone] $info<br>";
 		}
 		
 	}
