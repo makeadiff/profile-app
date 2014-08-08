@@ -40,6 +40,11 @@ p.help {
 	font-weight: bold;
 }
 
+span.bold {
+    text-shadow: 1px 1px #666;
+    font-weight: bold;
+}
+
 
 
 #email, #phone {
@@ -49,4 +54,10 @@ p.help {
 .status {
 	
 	width:20px;
+}
+
+a {
+
+    color: #ffffff;
+
 }

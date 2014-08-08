@@ -122,9 +122,15 @@ $user_data = $sql->getAssoc("SELECT name, email, phone, sex, photo, address, bir
 </td>
 <td><img src="images/invalid.png" id="dob_valid" class="status" /></td>
 <td class="help-area"><p class="help">Complete all fields including Facebook login to get 100% completion. That's it! You are done :)</p></td></tr>
+<tr>
+    <td>
+        <input type="checkbox" name="coc"><span class="bold">I agree to the <a href="mad_coc.html" onclick="javascript:void window.open('mad_coc.html','1385835292407','width=800,height=250,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;">MAD Code of Conduct</a></span>
+    </td>
+</tr>
 </table>
+
 <br /><br />
-<input type="submit" name="action" class="button big" value="Finish" />
+<input type="submit" name="action" class="button big" value="Finish" onclick="if(!this.form.coc.checked){alert('You must agree to the MAD Code of Conduct before submitting');return false;}"/>
 <input type="hidden" name="user_id" id="user_id" value="<?php  echo $user_id; ?>" />
 <input type="hidden" name="facebook_id" id="facebook_id" value="<?php  echo $user_data['facebook_id']; ?>" />
 <input type="hidden" name="progress" id="progress" /> <!--Progress set from profile.js-->
