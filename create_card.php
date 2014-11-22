@@ -2,7 +2,7 @@
 require('common.php');
 require('phpqrcode/qrlib.php');
 
-$template_image = 'images/card_template.png';
+$template_image = 'images/madcred.png';
 $im = ImageCreateFromPng($template_image);
 
 $user_id = intval($_REQUEST['user_id']);
@@ -11,71 +11,119 @@ if(!$person) die("Invalid User ID");
 $position = 'MAD Volunteer';
 extract($person);
 
-$user_url = 'makeadiff.in/volunteer/' . $user_id;
-$user_url_card = 'www.makeadiff.in/volunteer/' . $user_id;
-$frame = QRcode::text($user_url, false, QR_ECLEVEL_L, 4,  0); 
-$qrcode = get_qrcode($frame);
-
-$user_id_padded = str_pad($user_id,6,"0",STR_PAD_LEFT);
-
-header("Content-type: image/png");
-$crayola = imagecolorallocate($im, 248, 0, 73);
 $black = imagecolorallocate($im, 0, 0, 0);
-$light_crayola = imagecolorallocate($im, 253, 191, 209);
+$madRed = imagecolorallocate($im, 237, 24, 73);
+$phoneNumber = (string)$phone;
+$phoneNumberAppended = checkCode($phoneNumber);
 
-ImageTtfText($im, 35, 0, 20, 280, $crayola, "fonts/BebasNeue-webfont.ttf", $name); // Name
-ImageTtfText($im, 15, 0, 20, 310, $black, "fonts/BebasNeue-webfont.ttf", $position); //Position
+/*Parameters
+	1. Image Vector Variable
+	2. Font Size
+	3. Inclination (degrees)
+	4. X Pos
+	5. Y Pos
+	6. Color Code
+	7. Fonts
+	8. String to be placed.
+*/
+function appendZeros($string,$len){
+    $nZ = 6-$len;
+    //echo $nZ;
+    $zeros="";
+    for($i=0;$i<$nZ;$i++){
+        $zeros.="0";
+    }
 
-ImageTtfText($im, 15, 0, 60, 350, $black, "fonts/Trebuchet.ttf", $phone); // Phone
-ImageTtfText($im, 15, 0, 60, 380, $black, "fonts/Trebuchet.ttf", $email); // EMail
+    $final = $zeros.$string;
+    return $final;
+}
 
-ImageTtfText($im, 15, 0, 20, 140, $crayola, "fonts/BebasNeue-webfont.ttf", "MAD ID : "); //MAD ID
+function checkCode($phone){
+    $len = strlen($phone);
+    $phoneWithCode = "+91-";
+    if($len>10){
+        for($i=($len-10);$i<$len;$i++){
+            $phoneWithCode.=$phone[$i];
+        }
+    }
+    else{
+        $phoneWithCode.=$phone;
+    }
+    return $phoneWithCode;
+}
 
-ImageTtfText($im, 15, 0, 73, 140, $crayola, "fonts/BebasNeue-webfont.ttf", $user_id_padded); // ID
 
-ImageTtfText($im, 15, 0, 35, 410, $black, "fonts/Trebuchet.ttf", $user_url_card); // URL
+$length = strlen($user_id);
+$link = 'www.makeadiff.in/volunteer/'.$user_id;
+$frame = QRcode::text($link, false, QR_ECLEVEL_L, 4,  0);
+$qrcode = get_qrcode($frame);
+$idNumber = (string)$user_id;
+$idSixLength = appendZeros($idNumber,$length);
+//echo $idSixLength;
 
-imagecopyresampled($im, $qrcode, 20, 20, 0, 0, 100, 100, 100, 100);
+ImageTtfText($im, 35, 0, 15, 323, $madRed, "fonts/BebasNeue-webfont.ttf", $name); // Name
+ImageTtfText($im, 13, 0, 15, 343, $black, "fonts/BebasNeue-webfont.ttf", "MAD Volunteer");
+ImageTtfText($im, 15, 0, 48, 382, $black, "fonts/univers.ttf",$phoneNumberAppended );
+ImageTtfText($im, 15, 0, 48, 410, $black, "fonts/univers.ttf", $email);
+ImageTtfText($im, 13, 0, 637, 324, $madRed, "fonts/BebasNeue-webfont.ttf", "MAD ID : ");
+ImageTtfText($im, 13, 0, 682, 324, $madRed, "fonts/BebasNeue-webfont.ttf", $idSixLength);
+ImageTtfText($im, 15, 0, 48, 432, $black, "fonts/univers.ttf", $link);
+imagecopyresampled($im, $qrcode, 637, 336, 0, 0, 90, 90, 100, 100);
 
-header('Content-Disposition: attachment; filename=Card.png');
+/*
+	Parameters
+	1. Final Image
+	2. Sampled Image
+	3. Start X
+	4. Start Y
+	5. Source X Point
+	6. Source Y Point
+	7. Image Width
+	8. Image Height
+	9. Source Width
+	10. Source Height
+*/
+
+header('Content-Disposition: attachment; filename='.$name.' Card.png');
 header('Pragma: no-cache');
 imagepng($im);
 imagedestroy($im);
 
-
 function get_qrcode($frame) {
-	$outerFrame = 0;
+    $outerFrame = 0;
     $pixelPerPoint = 4;
-    
-	$h = count($frame);
+
+    $h = count($frame);
     $w = strlen($frame[0]);
-    
+
     $imgW = $w + 2 * $outerFrame;
     $imgH = $h + 2 * $outerFrame;
-    
+
     $base_image = imagecreate($imgW, $imgH);
-    
-    $col[0] = imagecolorallocate($base_image,255,255,255); // BG, white 
-    $col[1] = imagecolorallocate($base_image,0,0,0);     // FG, Black
+
+    $col[0] = imagecolorallocate($base_image,255,255,255); // BG, white
+    $col[1] = imagecolorallocate($base_image,0,0,0);     // FG,
 
     imagefill($base_image, 0, 0, $col[0]);
 
     for($y=0; $y<$h; $y++) {
         for($x=0; $x<$w; $x++) {
             if ($frame[$y][$x] == '1') {
-                imagesetpixel($base_image,$x+$outerFrame,$y+$outerFrame,$col[1]); 
+                imagesetpixel($base_image,$x+$outerFrame,$y+$outerFrame,$col[1]);
             }
         }
     }
-    
+
     // saving to file
     $target_image = imagecreate($imgW * $pixelPerPoint, $imgH * $pixelPerPoint);
     imagecopyresized(
-        $target_image, 
-        $base_image, 
-        0, 0, 0, 0, 
+        $target_image,
+        $base_image,
+        0, 0, 0, 0,
         $imgW * $pixelPerPoint, $imgH * $pixelPerPoint, $imgW, $imgH
-    ); 
-	
-	return $target_image;
+    );
+
+    return $target_image;
 }
+
+?>
