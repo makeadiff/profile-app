@@ -83,8 +83,8 @@ imagecopyresampled($im, $qrcode, 637, 336, 0, 0, 90, 90, 100, 100);
 	9. Source Width
 	10. Source Height
 */
-
-header('Content-Disposition: attachment; filename='.$name.' Card.png');
+$name = str_replace(' ','_',$name);
+header('Content-Disposition: attachment; filename='.$name.'_Card.png');
 header('Pragma: no-cache');
 imagepng($im);
 imagedestroy($im);
