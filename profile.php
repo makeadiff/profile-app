@@ -69,7 +69,7 @@ $user_data = $sql->getAssoc("SELECT name, email, phone, sex, photo, address, bir
 <tr><td><label for="email">Email</label><br />
 <input class="must input" type="text" name="email" id="email" value="<?php echo $user_data['email'] ?>" /><br />
 <input type="button" class="button verification" value="Send&#13;&#10;Verificaiton Code" name="action" id="send_email_code" />
-<input type="text" value="Verificaiton Code" name="email_code" id="email_code" class="code" /><!-- 1e339 -->
+<input type="text" value="Verification Code" name="email_code" id="email_code" class="code" /><!-- 1e339 -->
 <input type="hidden" value="" name="email_code_verified" id="email_code_verified" />
 <input type="button" class="button" value="Verify Code" name="action" id="verify_email_code" /></td>
 <td><img src="images/<?php if(isVerified('email', $user_id)) echo 'valid'; else echo 'invalid'; ?>.png" id="email_valid" class="status" /></td>
@@ -78,7 +78,7 @@ $user_data = $sql->getAssoc("SELECT name, email, phone, sex, photo, address, bir
 <tr><td><label for="phone">Phone</label><br />
 <input class="must input" type="text" name="phone" id="phone" value="<?php echo $user_data['phone'] ?>" /><br />
 <input type="button" class="button verification" value="Send&#13;&#10;Verificaiton Code" id="send_phone_code" />
-<input type="text" value="Verificaiton Code" name="phone_code" id="phone_code" class="code" /><!-- d58be -->
+<input type="text" value="Verification Code" name="phone_code" id="phone_code" class="code" /><!-- d58be -->
 <input type="hidden" value="" name="phone_code_verified" id="phone_code_verified" />
 <input type="button" class="button" value="Verify Code" name="action" id="verify_phone_code" /></td>
 <td><img src="images/<?php if(isVerified('sms', $user_id)) echo 'valid'; else echo 'invalid'; ?>.png" id="phone_valid" class="status" /></td>
