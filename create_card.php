@@ -6,7 +6,7 @@ $template_image = 'images/madcred.png';
 $im = ImageCreateFromPng($template_image);
 
 $user_id = intval($_REQUEST['user_id']);
-$person = $sql->getAssoc("SELECT name, phone, email FROM User WHERE id=$user_id AND status=1 AND user_type='volunteer'");
+$person = $sql->getAssoc("SELECT name, phone, email,facebook_id FROM User WHERE id=$user_id AND status=1 AND user_type='volunteer'");
 if(!$person) die("Invalid User ID");
 $position = 'MAD Volunteer';
 extract($person);
@@ -54,7 +54,7 @@ function checkCode($phone){
 
 
 $length = strlen($user_id);
-$link = 'www.makeadiff.in/volunteer/'.$user_id;
+$link = 'http://makeadiff.in/volunteer/'.$user_id;
 $frame = QRcode::text($link, false, QR_ECLEVEL_L, 4,  0);
 $qrcode = get_qrcode($frame);
 $idNumber = (string)$user_id;
@@ -69,7 +69,6 @@ ImageTtfText($im, 13, 0, 637, 324, $madRed, "fonts/BebasNeue-webfont.ttf", "MAD 
 ImageTtfText($im, 13, 0, 682, 324, $madRed, "fonts/BebasNeue-webfont.ttf", $idSixLength);
 ImageTtfText($im, 15, 0, 48, 432, $black, "fonts/univers.ttf", $link);
 imagecopyresampled($im, $qrcode, 637, 336, 0, 0, 90, 90, 100, 100);
-
 /*
 	Parameters
 	1. Final Image
@@ -83,8 +82,23 @@ imagecopyresampled($im, $qrcode, 637, 336, 0, 0, 90, 90, 100, 100);
 	9. Source Width
 	10. Source Height
 */
-$name = str_replace(' ','_',$name);
-header('Content-Disposition: attachment; filename='.$name.'_Card.png');
+
+// Insert the Facebook profile photo into the MAD Cred
+if($person['facebook_id']) {
+	$image_url = 'https://graph.facebook.com/v2.2/'.$person['facebook_id'].'/picture?type=large';
+	$photo = load($image_url);
+	if($photo) {
+		$temp_photo_file = 'profile_photos/$user_id.jpg';
+		file_put_contents($temp_photo_file, $photo);
+		$profile_photo = ImageCreateFromJpeg($temp_photo_file);
+		imagecopyresampled($im, $profile_photo, 24, 55, 0, 0, 163, 205, 163, 205);
+		imagedestroy($profile_photo);
+		unlink($temp_photo_file);
+	}
+}
+
+header('Content-Disposition: attachment; filename='.str_replace(' ', '_', $name).'_Card.png');
+//header("Content-type: image/png");
 header('Pragma: no-cache');
 imagepng($im);
 imagedestroy($im);
@@ -125,5 +139,3 @@ function get_qrcode($frame) {
 
     return $target_image;
 }
-
-?>
