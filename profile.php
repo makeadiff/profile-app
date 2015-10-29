@@ -56,8 +56,8 @@ $user_data = $sql->getAssoc("SELECT name, email, phone, sex, photo, address, bir
 
 </div>	
 
-<div id='problem_feedback'><a href="hrapp.html" onclick="javascript:void window.open('hrapp.html','1385835292407','width=800,height=250,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;"></a></div>
-	
+<!--<div id='problem_feedback'><a href="hrapp.html" onclick="javascript:void window.open('hrapp.html','1385835292407','width=800,height=250,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;"></a></div>
+-->
 	
 	
 <form action="save.php" id="profile-form" method="post">
