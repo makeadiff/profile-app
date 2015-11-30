@@ -1,16 +1,19 @@
 <?php
 require_once '../common.php';
 
-$city_id = intval($_REQUEST['city_id']);
-$name = $QUERY['name'];
+$city_id = i($QUERY, 'city_id', 0);
+$name = i($QUERY, 'name', '');
+$city_check = '';
+if($city_id) $city_check = "AND city_id=$city_id";
 
-$people = $sql->getById("SELECT id, name FROM User WHERE status='1' AND user_type='volunteer' AND city_id=$city_id AND name LIKE '%$name%'");
+$people = $sql->getById("SELECT id, name FROM User WHERE status='1' AND user_type='volunteer' $city_check AND name LIKE '%$name%'");
 
 if($people) {
-print "<ul>";
-foreach($people as $id=>$name) {
-	print "<li><p style='text-shadow:2px 2px #666;font-size:130%;'><a style='color:#ffffff;' href='fb.php?user_id=$id'>$name</a></p></li>\n";
-}
+	print "<ul id='people-list'>";
+	foreach($people as $id=>$name) {
+		print "<li><a href='fb.php?user_id=$id'>$name</a></li>\n";
+	}
+	print "</ul>";
 } else {
 	print "User not found.";
 }

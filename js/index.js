@@ -1,12 +1,4 @@
-function init() {	
-	$("#city_id").change(function() {
-		if(this.value != "0") {
-			$("#your_name").prop("disabled", false);
-		} else {
-			$("#your_name").prop("disabled", true);
-			
-		}
-	});
+function init() {
 	
 	$("#your_name").click(function() {					  
 		var val = $(this).val();
