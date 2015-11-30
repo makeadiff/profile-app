@@ -12,7 +12,9 @@ $cities = $sql->getById("SELECT id,name FROM City WHERE type='actual' ORDER BY n
 <body>
 
 <div id="wrapper">	
+<!--
 <div id='problem_feedback'><a href="hrapp.html" onclick="javascript:void window.open('hrapp.html','1385835292407','width=800,height=250,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;"></a></div>
+-->
 
 <h1 class="top">Find Yourself</h1>
 <h2 class="label">City</h2>

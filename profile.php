@@ -2,15 +2,10 @@
 require 'common.php';
 
 $user_id = intval($_REQUEST['user_id']);
-
 if(!$user_id) header("Location: index.php");
 
 $user_data = $sql->getAssoc("SELECT name, email, phone, sex, photo, address, birthday, bio, job_status, edu_institution, company, facebook_id FROM User WHERE id=$user_id");
-
-
-?>
-
-<!DOCTYPE HTML>
+?><!DOCTYPE HTML>
 <html>
 <head>
 <title>MAD Cred</title>
@@ -19,47 +14,31 @@ $user_data = $sql->getAssoc("SELECT name, email, phone, sex, photo, address, bir
 <link type="text/css" rel="stylesheet" href="css/profile.css" />
 <link type="text/css" rel="stylesheet" href="js/calendar/calendar.css" />
 <link type="text/css" rel="stylesheet" href="css/jquery.percentageloader-0.1.css" />
-
-
 <script type='text/javascript' > 
-  var loader; 
+var loader; 
 </script>
-
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/calendar/calendar.js"></script>
 <script type="text/javascript" src="js/profile.js"></script>
-
 <script type="text/javascript" src="js/jquery.percentageloader/src/jquery.percentageloader-0.1.js"></script>
-
-
-	
 </head>
 
 <body>
-
-
-
-
-
-
 <div id="wrapper">
 <h1>Complete your profile</h1>
 
 <div id="progressbar">
 
 <script type="text/javascript">
-
 	loader = $("#progressbar").percentageLoader({
     width : 160, height : 160, progress : 0.0, value : ''});
-	
 </script>
 
 </div>	
 
-<div id='problem_feedback'><a href="hrapp.html" onclick="javascript:void window.open('hrapp.html','1385835292407','width=800,height=250,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;"></a></div>
-	
-	
-	
+<!--<div id='problem_feedback'><a href="hrapp.html" onclick="javascript:void window.open('hrapp.html','1385835292407','width=800,height=250,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;"></a></div>
+-->
+
 <form action="save.php" id="profile-form" method="post">
 <table id="structure">
 <tr><td class="fields"><label for="name">Name</label><br /><input class="must input" type="text" name="name" id="name" value="<?php  echo ucfirst($user_data['name']); ?>" /></td>
@@ -136,10 +115,6 @@ $user_data = $sql->getAssoc("SELECT name, email, phone, sex, photo, address, bir
 <input type="hidden" name="progress" id="progress" /> <!--Progress set from profile.js-->
 </form>
 </div>
-
-
-
-
 
 </body>
 </html>
