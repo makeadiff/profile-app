@@ -1,0 +1,10 @@
+#people-list {
+	margin-left: 0px;
+	list-style: none;
+}
+
+#people-list li a {
+	color:#fff;
+	text-decoration: none;
+	text-shadow:1px 1px #000;
+}
