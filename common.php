@@ -22,15 +22,15 @@ function email($to, $subject, $body, $from = '') {
 	$headers = array ('From' => $from,
 		'To' => $to,
 		'Subject' => $subject);
-	$smtp = Mail::factory('smtp',
+	$smtp = @Mail::factory('smtp',
 		array ('host' => $host,
 			'auth' => true,
 			'username' => $username,
 			'password' => $password));
 	
-	$mail = $smtp->send($to, $headers, $body);
+	$mail = @$smtp->send($to, $headers, $body);
 	
-	if (PEAR::isError($mail)) {
+	if (@PEAR::isError($mail)) {
 		echo("<p>" . $mail->getMessage() . "</p>");
 		return false;
 	}
