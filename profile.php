@@ -43,7 +43,7 @@ var loader;
 <table id="structure">
 <tr><td class="fields"><label for="name">Name</label><br /><input class="must input" type="text" name="name" id="name" value="<?php  echo ucfirst($user_data['name']); ?>" /></td>
 <td class="status-area"><img src="images/invalid.png" id="name_valid" class="status" /></td>
-<td class="help-area"><p class="help">Enter your full name. No initials please! Eg: Gloria Sumita Benny</p></td></tr>
+<td class="help-area"><p class="help">Enter your full name. No initials please!</p></td></tr>
 
 <tr><td><label for="email">Email</label><br />
 <input class="must input" type="text" name="email" id="email" value="<?php echo $user_data['email'] ?>" /><br />
