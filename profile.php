@@ -103,7 +103,7 @@ var loader;
 <td class="help-area"><p class="help">Complete all fields including Facebook login to get 100% completion. That's it! You are done :)</p></td></tr>
 <tr>
     <td>
-        <input type="checkbox" name="coc"><span class="bold">I agree to the <a href="mad_coc.html" onclick="javascript:void window.open('mad_coc.html','1385835292407','width=800,height=250,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;">MAD Code of Conduct</a></span>
+        <input type="checkbox" name="coc"><span class="bold">I agree to the <a href="https://drive.google.com/file/d/0B81nBK1_ulQvdmxubXVRak5ud2c/view" onclick="javascript:void window.open('https://drive.google.com/file/d/0B81nBK1_ulQvdmxubXVRak5ud2c/view','1385835292407','width=800,height=250,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;">MAD Code of Conduct</a></span>
     </td>
 </tr>
 </table>
