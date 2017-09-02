@@ -1,6 +1,7 @@
 .calendar-box {
 	display:none;
 	background-color:#fff;
+	color:#000 !important;
 	border:1px solid #444;
 	position:absolute;
 	width:250px;
@@ -24,6 +25,7 @@
 }
 .calendar-box a {
 	text-decoration:none;
+	color: #333 !important;
 }
 .calendar-box .today a {
 	padding:0 5px;

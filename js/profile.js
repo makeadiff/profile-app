@@ -13,19 +13,7 @@ container['facebook_idSet'] = 0;
 
 function init() {	
 	if(document.getElementById("dob")) calendar.set("dob");
-	
-	$(".code").click(function() {
-		var val = $(this).val();
-		if(val == "Verificaiton Code") {
-			$(this).val("");
-		}
-	});
-	
-	$(".code").blur(function() {
-		if($(this).val() == "") $(this).val("Verificaiton Code");
-	});
-	
-	
+		
 	$("#name").change(checkContent);
 	$("#email").change(checkContent);
 	$("#phone").change(checkContent);
