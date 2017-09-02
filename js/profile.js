@@ -53,13 +53,13 @@ function init() {
 	if($("#facebook_id").val()!=""){
 		container["facebook_idSet"] = 10;
 		//alert("True");
-		}
-	else{ 
+	} else{ 
 		container["facebook_idSet"] = 0;
 		//alert("False");
-		}
+	}
+
 	$("#send_email_code").click(function() {
-		$.ajax("system/send_verification_email.php?email="+$("#email").val()+"&email="+$("#email").val()+"&user_id="+$("#user_id").val(), {
+		$.ajax("system/send_verification_email.php?email="+$("#email").val()+"&user_id="+$("#user_id").val(), {
 			success: function(data) {
 				if(data.success) alert("Email sent. Please check your inbox. If you don't find the email, check the spam folder as well");
 				else alert("System error. Please try again later");
@@ -90,7 +90,7 @@ function init() {
 	
 	
 	$("#send_phone_code").click(function() {
-		$.ajax("system/send_verification_sms.php?phone="+$("#phone").val()+"&phone="+$("#phone").val()+"&user_id="+$("#user_id").val(), {
+		$.ajax("system/send_verification_sms.php?phone="+$("#phone").val()+"&user_id="+$("#user_id").val(), {
 			success: function(data) {
 				if(data.success) alert("SMS sent. Please check your SMS inbox");
 				else alert("System error. Please try again later");

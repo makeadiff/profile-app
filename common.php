@@ -17,7 +17,7 @@ function email($to, $subject, $body, $from = '') {
 	// SMTP info here!
 	$host = "smtp.gmail.com";
 	$username = "madapp@makeadiff.in";
-	$password = "Th3C0ll3ct|v3";
+	$password = "madappgonemad";
 	
 	$headers = array ('From' => $from,
 		'To' => $to,

@@ -1,45 +1,38 @@
 <?php
 require 'common.php';
-require 'facebook-php-sdk/src/facebook.php';
+require 'php-graph-sdk/src/Facebook/autoload.php';
+if(!session_id()) session_start();
 
 $user_id = intval($_REQUEST['user_id']);
 if(!$user_id) header("Location: index.php");
 
-// Create our Application instance (replace this with your appId and secret).
-$facebook = new Facebook(array(
-  'appId'  => '1387327704844983',
-  'secret' => '3763c02d60d5401f7c905115836617f3',
-));
+$fb = new \Facebook\Facebook([
+  'app_id' => '1387327704844983',
+  'app_secret' => '3763c02d60d5401f7c905115836617f3',
+  'default_graph_version' => 'v2.10',
+  //'default_access_token' => '{access-token}', // optional
+]);
+$helper = $fb->getRedirectLoginHelper();
 
-// Get User ID
-$fb_user = $facebook->getUser();
-
-// We may or may not have this data based on whether the user is logged in.
-//
-// If we have a $user id here, it means we know the user is logged into
-// Facebook, but we don't know if the access token is valid. An access
-// token is invalid if the user logged out of Facebook.
-
-if ($fb_user) {
-  try {
-    // Proceed knowing you have a logged in user who's authenticated.
-    $user_profile = $facebook->api('/me');
-  } catch (FacebookApiException $e) {
-    error_log($e);
-    $fb_user = null;
-  }
+try {
+  $accessToken = $helper->getAccessToken();
+} catch(Facebook\Exceptions\FacebookSDKException $e) {
+  // There was an error communicating with Graph
+  echo $e->getMessage();
+  exit;
 }
 
-// Login or logout url will be needed depending on current user state.
-if ($fb_user) {
-  $logoutUrl = $facebook->getLogoutUrl();
-  
+// FB Authenticated.
+if (isset($accessToken)) {
   // Save FB ID to database.
   $sql->update("User", array('facebook_id'=>$fb_user), "id=$user_id");
-  header("Location: profile.php?user_id=$user_id");
+  header("Location: profile.php?user_id=$user_id"); exit;
   
 } else {
-  $loginUrl = $facebook->getLoginUrl();
+
+  $permissions = ['email']; // optional
+  $callback = 'http://makeadiff.in/apps/profile/fb.php?user_id=' . $user_id;
+  $loginUrl = $helper->getLoginUrl($callback, $permissions);
 }
 
 ?>
@@ -61,7 +54,9 @@ if ($fb_user) {
 -->
 
 <form action="profile.php" id="profile-form">
-<?php if (!empty($fb_user)) { ?>Logged into FB<?php } else { ?>
+<?php if (!empty($fb_user)) { ?>
+Logged into FB
+<?php } else { ?>
 <p style = "text-align:center;font-size:130%;font-weight:bold;"><a href="<?php echo $loginUrl; ?>">Login with Facebook</a></p>
 <?php } ?>
 <p class="help" style = "text-align:center;">Connect your FB account to access your MAD account using your FB login and recieve critical update on your FB account. We have a strict no spam policy.</p>
