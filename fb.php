@@ -24,8 +24,11 @@ try {
 
 // FB Authenticated.
 if (isset($accessToken)) {
+  $response = $fb->get('/me?fields=id,name', $accessToken);
+  $fb_user = $response->getGraphUser();
+
   // Save FB ID to database.
-  $sql->update("User", array('facebook_id'=>$fb_user), "id=$user_id");
+  $sql->update("User", array('facebook_id'=>$fb_user['id']), "id=$user_id");
   header("Location: profile.php?user_id=$user_id"); exit;
   
 } else {
