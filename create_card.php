@@ -2,6 +2,8 @@
 require('common.php');
 require('phpqrcode/qrlib.php');
 
+error_reporting(0);
+
 $template_image = 'images/madcred.png';
 $im = ImageCreateFromPng($template_image);
 

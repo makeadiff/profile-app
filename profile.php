@@ -1,7 +1,7 @@
 <?php
 require 'common.php';
 
-$user_id = intval($_REQUEST['user_id']);
+$user_id = intval($_SESSION['user_id']);
 if(!$user_id) header("Location: index.php");
 
 $user_data = $sql->getAssoc("SELECT name, email, phone, sex, photo, address, birthday, bio, job_status, edu_institution, company, facebook_id FROM User WHERE id=$user_id");
