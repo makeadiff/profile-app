@@ -1,6 +1,8 @@
 <?php
+// Not in use right now. Disabling...
+exit;
 require 'common.php';
-require 'php-graph-sdk/src/Facebook/autoload.php';
+// require 'php-graph-sdk/src/Facebook/autoload.php';
 if(!session_id()) session_start();
 
 $user_id = intval($_REQUEST['user_id']);
