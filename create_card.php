@@ -92,12 +92,15 @@ if($person['photo'] and file_exists($user_upload_folder . $person['photo'])) {
     // Resize to smaller size...
     $width = imagesx($profile_photo);
     $height= imagesy($profile_photo);
-    $new_width = 162;
+    $new_width = 163;
     $new_height = 0; // Calculate automatically
+    $max_height = 205;
     
     //If the width or height is give as 0, find the correct ratio using the other value
     if(!$new_height and $new_width) $new_height = $height * $new_width / $width; //Get the new height in the correct ratio
     if($new_height and !$new_width) $new_width  = $width  * $new_height/ $height;//Get the new width in the correct ratio
+
+    if($new_height > $max_height) $new_height = $max_height;
 
     imagecopyresampled($im, $profile_photo, 24, 55, 0, 0, $new_width, $new_height, $width, $height);
 
@@ -116,9 +119,7 @@ if($person['photo'] and file_exists($user_upload_folder . $person['photo'])) {
     }
 }
 
-// dump($person, $temp_photo_file, $photo); exit;
-
-// header('Content-Disposition: attachment; filename='.str_replace(' ', '_', $name).'_Card.png');
+/// header('Content-Disposition: attachment; filename='.str_replace(' ', '_', $name).'_Card.png');
 header("Content-type: image/png");
 header('Pragma: no-cache');
 imagepng($im);
