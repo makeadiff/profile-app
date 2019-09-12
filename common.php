@@ -1,5 +1,7 @@
 <?php
-require_once dirname(dirname(__FILE__)) . '/common.php';
+require_once dirname(dirname(__FILE__)) . '/common/common.php';
+
+$user_upload_folder = '../../madapp/uploads/users/';
 
 function isVerified($type, $user_id) {
 	global $sql;

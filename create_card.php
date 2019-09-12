@@ -8,7 +8,7 @@ $template_image = 'images/madcred.png';
 $im = ImageCreateFromPng($template_image);
 
 $user_id = intval($_REQUEST['user_id']);
-$person = $sql->getAssoc("SELECT name, phone, email,facebook_id FROM User WHERE id=$user_id AND status=1 AND user_type='volunteer'");
+$person = $sql->getAssoc("SELECT id,name, phone, email,facebook_id,photo FROM User WHERE id=$user_id AND status=1 AND user_type='volunteer'");
 if(!$person) die("Invalid User ID");
 $position = 'MAD Volunteer';
 extract($person);
@@ -83,24 +83,43 @@ imagecopyresampled($im, $qrcode, 637, 336, 0, 0, 90, 90, 100, 100);
 	8. Image Height
 	9. Source Width
 	10. Source Height
+    imagecopyresampled ( resource $dst_image , resource $src_image , int $dst_x , int $dst_y , int $src_x , int $src_y , int $dst_w , int $dst_h , int $src_w , int $src_h )
 */
 
+if($person['photo'] and file_exists($user_upload_folder . $person['photo'])) {
+    $profile_photo = ImageCreateFromJpeg($user_upload_folder . $person['photo']);
+
+    // Resize to smaller size...
+    $width = imagesx($profile_photo);
+    $height= imagesy($profile_photo);
+    $new_width = 162;
+    $new_height = 0; // Calculate automatically
+    
+    //If the width or height is give as 0, find the correct ratio using the other value
+    if(!$new_height and $new_width) $new_height = $height * $new_width / $width; //Get the new height in the correct ratio
+    if($new_height and !$new_width) $new_width  = $width  * $new_height/ $height;//Get the new width in the correct ratio
+
+    imagecopyresampled($im, $profile_photo, 24, 55, 0, 0, $new_width, $new_height, $width, $height);
+
 // Insert the Facebook profile photo into the MAD Cred
-if($person['facebook_id']) {
+} elseif($person['facebook_id']) {
 	$image_url = 'https://graph.facebook.com/v2.2/'.$person['facebook_id'].'/picture?type=large';
 	$photo = load($image_url);
-	if($photo) {
-		$temp_photo_file = 'profile_photos/$user_id.jpg';
-		file_put_contents($temp_photo_file, $photo);
-		$profile_photo = ImageCreateFromJpeg($temp_photo_file);
-		imagecopyresampled($im, $profile_photo, 24, 55, 0, 0, 163, 205, 163, 205);
-		imagedestroy($profile_photo);
-		unlink($temp_photo_file);
-	}
+
+    if($photo) {
+    	$temp_photo_file = "profile_photos/$user_id.jpg";
+    	file_put_contents($temp_photo_file, $photo);
+    	$profile_photo = ImageCreateFromJpeg($temp_photo_file);
+    	imagecopyresampled($im, $profile_photo, 24, 55, 0, 0, 163, 205, 163, 205);
+    	imagedestroy($profile_photo);
+    	unlink($temp_photo_file);
+    }
 }
 
-header('Content-Disposition: attachment; filename='.str_replace(' ', '_', $name).'_Card.png');
-//header("Content-type: image/png");
+// dump($person, $temp_photo_file, $photo); exit;
+
+// header('Content-Disposition: attachment; filename='.str_replace(' ', '_', $name).'_Card.png');
+header("Content-type: image/png");
 header('Pragma: no-cache');
 imagepng($im);
 imagedestroy($im);

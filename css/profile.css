@@ -40,7 +40,7 @@ p.help {
 	font-weight: bold;
 }
 
-span.bold {
+.bold {
     text-shadow: 1px 1px #666;
     font-weight: bold;
 }

@@ -21,22 +21,28 @@ function init() {
 	$("#dob").change(checkContent);
 	$("#sex_f").change(checkContent);
 	$("#sex_m").change(checkContent);
+	$("#sex_o").change(checkContent);
 	$("#job_status_student").change(checkContent);
 	$("#job_status_working").change(checkContent);
 	$("#job_status_other").change(checkContent);
 	$("#edu_institution").change(checkContent);
 	$("#company").change(checkContent);
+	$("#address").change(checkContent);
+	$("#dob").change(checkContent);
 	
 	checkContent("name");
 	checkContent("address");
 	checkContent("dob");
 	checkContent("sex_f");
 	checkContent("sex_m");
+	checkContent("sex_o");
 	checkContent("job_status_working");
 	checkContent("job_status_student");
 	checkContent("job_status_other");
 	checkContent("edu_institution");
 	checkContent("company");
+	checkContent("address");
+	checkContent("dob");
 	
 	if($("#facebook_id").val()!=""){
 		container["facebook_idSet"] = 10;
@@ -96,10 +102,10 @@ function init() {
 					$("#phone_code_verified").val($("#phone").val());
 					container["phoneSet"] = 10;
 					
-					progress = 	(container['nameSet']+container['emailSet']+container['phoneSet']+container['addressSet']+container['dobSet'] +container['sexSet']+container['job_statusSet']+container['edu_institutionSet']+container['companySet']+container['facebook_idSet'])/100;
-					//alert(progress);
-					loader.setProgress(progress);
-					document.getElementById("progress").value = progress;
+					// progress = 	(container['nameSet']+container['emailSet']+container['phoneSet']+container['addressSet']+container['dobSet'] +container['sexSet']+container['job_statusSet']+container['edu_institutionSet']+container['companySet']+container['facebook_idSet'])/100;
+					// //alert(progress);
+					// loader.setProgress(progress);
+					// document.getElementById("progress").value = progress;
 				}
 				else alert("Invalid code. Make sure that the code you entered is exactly the same as what you got.");
 			},
@@ -109,21 +115,28 @@ function init() {
 	
 	$("#profile-form").submit(function(e) {
 		var error = false;
+
+		console.log($("#cpp").val());
+		if(!$("#cpp").val()) {
+			alert("Please sign the Child Protection Policy, then refresh this page to go ahead.");
+			error = true;
+		}
+
 		if(!checkContent("name")) {
 			alert("Enter your name");
 			$("#name").focus();
 			error = true;
 		}
-		else if(!$("#email_code_verified").val()) {
+		else if($.inArray('email', verification_status) == -1 && !$("#email_code_verified").val()) {
 			alert("Please verify your email adress");
 			$("#email").focus();
 			error = true;
 		}
-		else if(!$("#phone_code_verified").val()) {
-			alert("Please verify your phone number");
-			$("#phone").focus();
-			error = true;
-		}
+		// else if(!$("#phone_code_verified").val()) {
+		// 	alert("Please verify your phone number");
+		// 	$("#phone").focus();
+		// 	error = true;
+		// }
 		else if(!checkContent("address")) {
 			alert("Enter your address");
 			$("#address").focus();
@@ -150,10 +163,8 @@ function checkContent(id) {
 		var id = this.id;
 		var ele = $(this);
 	}
-	
-	
-	
-	if(id =="email" || id == "phone") {
+
+	if(id =="email") {
 		if(ele.val() != $("#"+id+"_code_verified").val()) {
 			untick("#"+id+"_valid");
 			$("#"+id+"_code_verified").val("")
@@ -163,26 +174,23 @@ function checkContent(id) {
 		if(!ele.val()) {
 			untick("#"+id+"_valid");
 			return false;
+		} else {
+			tick("#"+id+"_valid");
 		}
-		else {
-		
-		if(id.lastIndexOf("sex",0) == 0)
-			id = "sex";
-		if(id.lastIndexOf("job",0) == 0)
-			id = "job_status";
-		
-		tick("#"+id+"_valid");
-		//alert(id);
-		container[id+"Set"] = 10;
-		
-		}
-		
+		// else {
+		// 	if(id.lastIndexOf("sex",0) == 0) id = "sex";
+		// 	if(id.lastIndexOf("job",0) == 0) id = "job_status";
+			
+		// 	tick("#"+id+"_valid");
+		// 	container[id+"Set"] = 10;
+		// }
 	}
 	
-	progress = 	(container['nameSet']+container['emailSet']+container['phoneSet']+container['addressSet']+container['dobSet'] +container['sexSet']+container['job_statusSet']+container['edu_institutionSet']+container['companySet']+container["facebook_idSet"])/100;
-	//alert(progress);
-	loader.setProgress(progress);
-	document.getElementById("progress").value = progress;
+	// progress = 	(container['nameSet'] + container['emailSet'] + container['phoneSet'] + container['addressSet'] + container['dobSet']   +container['sexSet'] 
+	// 				+ container['job_statusSet'] + container['edu_institutionSet'] + container['companySet'] + container["facebook_idSet"])/100;
+	// //alert(progress);
+	// loader.setProgress(progress);
+	// document.getElementById("progress").value = progress;
 	return true;
 }
 
