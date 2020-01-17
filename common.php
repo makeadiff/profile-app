@@ -9,33 +9,3 @@ function isVerified($type, $user_id) {
 	if(!$verification_status) $verification_status = array();
 	return in_array($type, $verification_status);
 }
-
-
-function email($to, $subject, $body, $from = '') {
-	//return true; //:DEBUG:
-	require("Mail.php");
-	if(!$from) $from = "MADApp <madapp@makeadiff.in>";
-	
-	// SMTP info here!
-	$host = "smtp.gmail.com";
-	$username = "madapp@makeadiff.in";
-	$password = "madappgonemad";
-	
-	$headers = array ('From' => $from,
-		'To' => $to,
-		'Subject' => $subject);
-	$smtp = @Mail::factory('smtp',
-		array ('host' => $host,
-			'auth' => true,
-			'username' => $username,
-			'password' => $password));
-	
-	$mail = @$smtp->send($to, $headers, $body);
-	
-	if (@PEAR::isError($mail)) {
-		echo("<p>" . $mail->getMessage() . "</p>");
-		return false;
-	}
-	
-	return true;
-}

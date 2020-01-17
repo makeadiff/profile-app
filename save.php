@@ -39,7 +39,7 @@ MAD Tech Team
 http://makeadiff.in/
 END;
 
-email($_REQUEST['email'], 'Your MAD Cred', $body);
+sendEmail($_REQUEST['email'], 'Your MAD Cred', $body);
 
 ?>
 <!DOCTYPE HTML>
